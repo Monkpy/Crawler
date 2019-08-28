@@ -1,4 +1,4 @@
-# Crawler
+# B站滑动验证码模拟登陆
 使用selenium 的webdriver
 
 使用PIL的Image来打开保存的图片
