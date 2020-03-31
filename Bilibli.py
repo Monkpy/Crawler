@@ -18,7 +18,7 @@ class Bili(object):
 	def __del__(self):
 		self.driver.close()
 
-	def show_element(self, element):  # 让验证码图片迅速还原成完整图片
+	def show_element(self, element):  # 让验证码图片迅速还原成完整图片--修改js的属性使隐藏部分可见
 		self.driver.execute_script("arguments[0].style=arguments[1]", element, "display: block;")
 
 	def hide_element(self, element):  # 暂不知用处
