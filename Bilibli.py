@@ -36,7 +36,7 @@ class Bili(object):
 			time.sleep(t)
 			password.send_keys('密码')
 			time.sleep(1)
-			login_but = self.driver.find_element_by_xpath('//*[@id="geetest-wrap"]/ul/li[5]/a[1]')
+			login_but = self.driver.find_element_by_xpath('//a[@class="btn btn-login"]')
 			login_but.click()
 			time.sleep(2)
 		except Exception as e:
@@ -174,7 +174,7 @@ class Bili(object):
 			while True:
 				for i in range(6, 10):
 					mspan = self.driver.find_element_by_xpath('//div[@class="geetest_result_content"]').text
-					if '拖动滑块' in mspan:
+					if '请正确拼合图像' in mspan:
 						print(mspan)
 						time.sleep(3)
 						distance = self.get_distance(bg_image, fullbg_image)
@@ -186,7 +186,7 @@ class Bili(object):
 						self.move_to_gap(trace)
 						time.sleep(0.5)
 					else:
-						if '怪物' in mspan:
+						if '请重试' in mspan:
 							print(mspan)
 							time.sleep(3)
 							distance = self.get_distance(bg_image, fullbg_image)
