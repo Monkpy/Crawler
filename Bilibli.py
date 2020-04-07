@@ -189,15 +189,9 @@ class Bili(object):
 						if '请重试' in mspan:
 							print(mspan)
 							time.sleep(3)
-							distance = self.get_distance(bg_image, fullbg_image)
-							print('计算偏移量为：%s Px' % distance)
-							trace = self.get_trace(
-								int(distance) - int(i))  # 减值--->防止拉伸过度，此处是处理滑块到缺口的距离，因为初始滑块就与边框有一段距离（猜测）
-							print('减值%s' % i)
-							print(trace)
-							# 移动滑块
-							self.move_to_gap(trace)
-							time.sleep(0.5)
+							self.driver.find_element_by_xpath('//div[@class="geetest_panel_error_content"]').click()
+							self.get_image_loction()
+							self.slice()
 						else:
 							break
 				break
